@@ -4,49 +4,31 @@ import java.time.format.DateTimeParseException;
 import java.util.regex.*;
 
 class ContactList{
-	private Contact[] contactArray;
-	private int nextIndex;
-	
-	//-------------------Constructor----------------------//
-	public ContactList(int initialSize){
-		this.contactArray = new Contact[initialSize];
-		this.nextIndex = 0;
-	}
-	
-	//-------------------get contact array----------------------//
-	public Contact[] getContactArray(){
-		return contactArray;
-	}
-	
-	//-------------------isFull?----------------------//
-	private boolean isFull(){
-		return nextIndex >= contactArray.length;
-	}
-	
-	//-------------------extend arrays----------------------//
-	private void extendArray(){
-		int newSize = (int) (contactArray.length*1.5);
-		Contact[] tempContactArray = new Contact[newSize];
-		
-		for(int i = 0; i < contactArray.length; i++){
-			tempContactArray[i] = contactArray[i];
-		}
-		contactArray = tempContactArray;
-	}
+	private Node start;
 	
 	//-------------------add element----------------------//
 	public void add(Contact contact){
-		if(isFull()){
-			extendArray();
+		Node n1 = new Node(contact);
+		Node lastNode = start;
+		if(isEmpty()){
+			start = n1;
+		}else{
+			while(lastNode.next != null){
+				lastNode = lastNode.next;
+			}
+			lastNode.next = n1;
 		}
-		contactArray[nextIndex] = contact;
-		nextIndex++;
 	}
+	
+	public boolean isEmpty(){
+		return start==null;
+	}
+
 	
 	//-------------------delete element----------------------//
     public void deleteElement(int x) {
 		
-		sortByContactId();
+		//sortByContactId();
 		
 		for(int i = nextIndex - 1; i > x; i--){
 			contactArray[i].setContactId(contactArray[i-1].getContactId());
@@ -118,12 +100,16 @@ class ContactList{
     //-------------------search name or phone number existance----------------------//
     public int search(String query){
 		
-		sortByContactId();
+		//sortByContactId();
 		
-		for(int i = 0; i < nextIndex; i++){
-			if(contactArray[i].getName().equals(query) || contactArray[i].getPhoneNumber().equals(query)){
-				return i;
+		Node temp = start;
+		int index = 0;
+		while(temp!=null){
+			if(temp.contact.getName() == query){
+				return index;
 			}
+			index++;
+			temp=temp.next;
 		}
 		return -1;
 	}
@@ -164,7 +150,12 @@ class ContactList{
 		System.out.println(" +-----------------------------------------------------------------------------------------------+");
 	}
 	
-	//--------------node class----------------------
+	//-------------------get contact array----------------------//
+	public Contact[] getContactArray(){
+		return contactArray;
+	}
+	
+	//--------------node class----------------------//
 	class Node{
 		private Contact contact;
 		private Node next;
