@@ -22,6 +22,7 @@ class ContactList{
 		}
 	}
 	
+	//----------is there no nodes?------------//
 	public boolean isEmpty(){
 		
 		return start == null;
@@ -72,6 +73,7 @@ class ContactList{
 		return false;
 	}
 	
+	//-------------get contact using index---------------//
 	public Contact get(int index){
 		
 		Node temp = start;
@@ -83,11 +85,13 @@ class ContactList{
 		return temp.contact; 
 	}
 	
+	//-------------get contact using query---------------//
 	public Contact get(String query){
 		
 		return get(search(query)); 
 	}
 	
+	//-------------get how many nodes are there---------------//
 	public int size(){
 		
 		int indexCount = 0;
@@ -99,6 +103,7 @@ class ContactList{
 		return indexCount;
 	}
 
+	//---------------insert contacts to an array--------------//
 	public Contact[] toArray(){
 		
 		Contact[] tempArray = new Contact[size()];
@@ -319,7 +324,7 @@ class Demo{
 					//------exit-------//
 					clearConsole();
 					System.exit(0);
-				default :
+				default:
 					//------invalid option-------//
 					clearConsole();
 					continue;
