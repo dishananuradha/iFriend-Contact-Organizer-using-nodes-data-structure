@@ -63,12 +63,10 @@ class ContactList{
     public boolean isDuplicate(String phoneNumber){
 		
 		Node temp = start;
-		int indexCount = 0;
 		while(temp != null){
 			if(temp.contact.getPhoneNumber().equals(phoneNumber)){
 				return true;
 			}
-			indexCount++;
 			temp=temp.next;
 		}
 		return false;
