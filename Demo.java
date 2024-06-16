@@ -74,7 +74,7 @@ class ContactList{
 	}
 	
 	//-------------get contact using index---------------//
-	public Contact get(int index){
+	private Contact get(int index){
 		
 		Node temp = start;
 		int indexCount = 0;
