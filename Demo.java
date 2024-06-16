@@ -23,7 +23,7 @@ class ContactList{
 	}
 	
 	//----------is there no nodes?------------//
-	public boolean isEmpty(){
+	private boolean isEmpty(){
 		
 		return start == null;
 	}
@@ -92,7 +92,7 @@ class ContactList{
 	}
 	
 	//-------------get how many nodes are there---------------//
-	public int size(){
+	private int size(){
 		
 		int indexCount = 0;
 		Node temp = start;
@@ -104,7 +104,7 @@ class ContactList{
 	}
 
 	//---------------insert contacts to an array--------------//
-	public Contact[] toArray(){
+	private Contact[] toArray(){
 		
 		Contact[] tempArray = new Contact[size()];
 		Node temp = start;
@@ -178,7 +178,7 @@ class ContactList{
 	}
 	
 	//----------------print contacts table-------------------//
-	public void printTable(String str, Contact[] contactArray){
+	private void printTable(String str, Contact[] contactArray){
 		
 		System.out.println("                  +-------------------------------------------------------------+");
 		System.out.printf("                  |\t\t\tList contact by %s\t\t\t|\n", str);
