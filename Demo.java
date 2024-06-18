@@ -24,13 +24,11 @@ class ContactList{
 	
 	//----------is there no nodes?------------//
 	private boolean isEmpty(){
-		
 		return start == null;
 	}
 
 	//-------------------search name or phone number existance----------------------//
     public int search(String query){
-		
 		Node temp = start;
 		int indexCount = 0;
 		while(temp != null){
@@ -45,7 +43,6 @@ class ContactList{
 	
 	//-------------------delete element----------------------//
     public void deleteElement(String query) {
-		
 		int index = search(query);
 		if(index == 0){
 			start=start.next;
@@ -62,7 +59,6 @@ class ContactList{
     
     //-------------------search phone number duplicate or not----------------------//
     public boolean isDuplicate(String phoneNumber){
-		
 		Node temp = start;
 		while(temp != null){
 			if(temp.contact.getPhoneNumber().equals(phoneNumber)){
@@ -75,7 +71,6 @@ class ContactList{
 	
 	//-------------get contact using query---------------//
 	public Contact get(String query){
-		
 		int index = search(query);
 		Node temp = start;
 		int indexCount = 0;
@@ -88,7 +83,6 @@ class ContactList{
 	
 	//-------------get how many nodes are there---------------//
 	private int size(){
-		
 		int indexCount = 0;
 		Node temp = start;
 		while(temp != null){
@@ -100,7 +94,6 @@ class ContactList{
 
 	//---------------insert contacts to an array--------------//
 	private Contact[] toArray(){
-		
 		Contact[] tempArray = new Contact[size()];
 		Node temp = start;
 		for (int i = 0; i < tempArray.length; i++){
@@ -112,7 +105,6 @@ class ContactList{
     
     //-------------------sort by name----------------------//
     public void sortByName(String str){
-		
 		Contact[] contactArray = toArray();
         for(int i = 0; i < contactArray.length - 1; i++) {
             for(int j = 0; j < contactArray.length - 1 - i; j++){
@@ -129,7 +121,6 @@ class ContactList{
     
     //------------------sort by salary----------------------//
     public void sortBySalary(String str){
-		
 		Contact[] contactArray = toArray();
         for(int i = 0; i < contactArray.length - 1; i++) {
             for(int j = 0; j < contactArray.length - 1 - i; j++){
@@ -146,7 +137,6 @@ class ContactList{
 
 	//-----------------sort by birthday----------------------//
     public void sortByBirthday(String str){
-		
 		Contact[] contactArray = toArray();
         for(int i = 0; i < contactArray.length - 1; i++) {
             for(int j = 0; j < contactArray.length - 1 - i; j++){
@@ -163,8 +153,8 @@ class ContactList{
     
 	//----------------print contact info-------------------//
     public void printContactInfo(String query){
-		
 		Contact contact = get(query);
+		
 		System.out.printf("\n\n\tContact ID\t\t: %s", contact.getContactId());
 		System.out.printf("\n\tName\t\t\t: %s", contact.getName());
 		System.out.printf("\n\tPhone Number\t\t: %s", contact.getPhoneNumber());
@@ -175,7 +165,6 @@ class ContactList{
 	
 	//----------------print contacts table-------------------//
 	private void printTable(String str, Contact[] contactArray){
-		
 		System.out.println("                  +-------------------------------------------------------------+");
 		System.out.printf("                  |\t\t\tList contact by %s\t\t\t|\n", str);
 		System.out.println("                  +-------------------------------------------------------------+");
@@ -192,7 +181,6 @@ class ContactList{
 
 	//--------------node class----------------------//
 	class Node{
-		
 		private Contact contact;
 		private Node next;
 		
@@ -264,7 +252,6 @@ class Demo{
 		Scanner input = new Scanner(System.in);
 		
 		while(true){
-			
 			System.out.println("\n");
 			System.out.println("            /$$ /$$$$$$$$ /$$$$$$$  /$$$$$$ /$$$$$$$$ /$$   /$$ /$$$$$$$");
 			System.out.println("           |__/| $$_____/| $$__  $$|_  $$_/| $$_____/| $$$ | $$| $$__  $$");
