@@ -73,22 +73,17 @@ class ContactList{
 		return false;
 	}
 	
-	//-------------get contact using index---------------//
-	private Contact get(int index){
+	//-------------get contact using query---------------//
+	public Contact get(String query){
 		
+		int index = search(query);
 		Node temp = start;
 		int indexCount = 0;
 		while(indexCount < index){
 			indexCount++;
 			temp = temp.next;
 		}
-		return temp.contact; 
-	}
-	
-	//-------------get contact using query---------------//
-	public Contact get(String query){
-		
-		return get(search(query)); 
+		return temp.contact;  
 	}
 	
 	//-------------get how many nodes are there---------------//
