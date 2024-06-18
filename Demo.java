@@ -4,12 +4,10 @@ import java.time.format.DateTimeParseException;
 import java.util.regex.*;
 
 class ContactList{
-	
 	private Node start;
 	
 	//-------------------add element----------------------//
 	public void add(Contact contact){
-		
 		Node n1 = new Node(contact);
 		Node lastNode = start;
 		if(isEmpty()){
@@ -191,7 +189,6 @@ class ContactList{
 }
 
 class Contact{
-	
 	private String contactId;
 	private String name;
 	private String phoneNumber;
