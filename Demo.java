@@ -10,7 +10,7 @@ class ContactList{
 	public void add(Contact contact){
 		Node n1 = new Node(contact);
 		Node lastNode = start;
-		if(isEmpty()){
+		if(start == null){
 			start = n1;
 		}else{
 			while(lastNode.next != null){
@@ -18,11 +18,6 @@ class ContactList{
 			}
 			lastNode.next = n1;
 		}
-	}
-	
-	//----------is there no nodes?------------//
-	private boolean isEmpty(){
-		return start == null;
 	}
 
 	//-------------------search name or phone number existance----------------------//
