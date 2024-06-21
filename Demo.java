@@ -34,8 +34,8 @@ class ContactList{
 		return -1;
 	}
 	
-	//-------------------delete element----------------------//
-    public void deleteElement(String query) {
+	//-------------------delete contact----------------------//
+    public void delete(String query) {
 		int index = search(query);
 		if(index == 0){
 			start=start.next;
@@ -786,7 +786,7 @@ class Demo{
 				
 				if(ch == 'Y' || ch == 'y'){
 
-					contactList.deleteElement(query);                     //delete the element
+					contactList.delete(query);                     //delete the contact
 					System.out.println("\n\tContact has been deleted successfully...");
 
 				}else if(ch == 'N' || ch == 'n'){
